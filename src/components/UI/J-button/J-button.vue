@@ -1,6 +1,6 @@
 <template>
     <button
-        class="j-button btn btn-primary"
+        class="j-button btn"
         :class="buttonClasses"
         :disabled="isDisabled"
         :type="type"
