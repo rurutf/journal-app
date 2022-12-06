@@ -1,7 +1,10 @@
 <template>
     <button
-        class="j-button"
-        :class="buttonClasses">
+        class="j-button btn btn-primary"
+        :class="buttonClasses"
+        :disabled="isDisabled"
+        :type="type"
+        v-bind="$attrs">
         {{ text }}
     </button>
 </template>
@@ -14,7 +17,11 @@ import { Options, Vue } from 'vue-class-component';
         buttonClasses() {
             return {
                 'disabled': this.disabled,
+                'loading': this.loading,
             }
+        },
+        isDisabled() {
+            return this.disabled || this.loading;
         }
     },
     props: {
@@ -22,11 +29,18 @@ import { Options, Vue } from 'vue-class-component';
             type: Boolean,
             default: false,
         },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
         text: {
             type: String,
             default: '',
         },
-
+        type: {
+            type: String,
+            default: 'button',
+        }
     }
 })
 export default class JButton extends Vue {}
