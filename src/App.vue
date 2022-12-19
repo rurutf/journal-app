@@ -1,17 +1,14 @@
 <template>
   <div>
-      <j-button :text="'Hello'"></j-button>
   </div>
   <router-view/>
 </template>
 
-<script>
-import JButton from "@/components/UI/J-button/J-button";
-export default {
-    components: {JButton}
-}
+<script setup lang="ts">
+import {computed, defineProps} from "vue";
+
 </script>
 
 <style lang="scss">
-
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css";
 </style>
