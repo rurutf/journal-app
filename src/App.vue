@@ -1,11 +1,15 @@
 <template>
   <div>
+      <j-avatar initials-name="Inna Pav"></j-avatar>
+      <j-button text="hfhfhfhf"></j-button>
   </div>
   <router-view/>
 </template>
 
 <script setup lang="ts">
 import {computed, defineProps} from "vue";
+import JAvatar from "@/components/UI/J-avatar/J-avatar.vue";
+import JButton from "@/components/UI/J-button/J-button.vue";
 
 </script>
 

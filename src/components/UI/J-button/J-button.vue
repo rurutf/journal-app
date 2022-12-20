@@ -15,40 +15,42 @@
     </button>
 </template>
 
-<script setup lang="ts">
-import {computed, defineProps} from "vue";
+<script lang="ts">
+import {defineComponent} from 'vue'
 
-const buttonClasses = computed(() => {
-    return [
-        {
-            'disabled': props.disabled,
-            'loading': props.loading,
+export default defineComponent({
+    computed: {
+        buttonClasses() {
+            return [
+                {
+                    'disabled': this.disabled,
+                    'loading': this.loading,
+                }
+            ]
+        },
+        isDisabled() {
+            return this.disabled || this.loading;
         }
-    ]
-})
-
-const isDisabled = computed(() => {
-    return props.disabled || props.loading;
-})
-
-const props = defineProps({
-    disabled: {
-        type: Boolean,
-        default: false,
     },
-    loading: {
-        type: Boolean,
-        default: true,
-    },
-    text: {
-        type: String,
-        default: '',
-    },
-    type: {
-        type: String,
-        default: 'button',
+    props: {
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
+        text: {
+            type: String,
+            default: '',
+        },
+        type: {
+            type: String,
+            default: 'button',
+        }
     }
-});
+})
 </script>
 
 <style lang="scss">
@@ -57,6 +59,7 @@ const props = defineProps({
 .j-button {
     position: relative;
     width: auto;
+    height: 45px;
     max-width: 100%;
     color: $white;
     background-color: $purple-medium;
